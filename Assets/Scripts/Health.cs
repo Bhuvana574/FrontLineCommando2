@@ -10,8 +10,6 @@ public class Health : MonoBehaviour
     [SerializeField]
     public int currentHealth;
     public int enemiesKilled=0;
-  
-    
     public ParticleSystem enemyParticle;
     public static Health instance;
     
@@ -20,10 +18,6 @@ public class Health : MonoBehaviour
         instance = this;
 
       }
-
-
-
-
 
     private void OnEnable()
     {
@@ -48,8 +42,12 @@ public class Health : MonoBehaviour
         {
             SceneManager.LoadScene(2);
         }
+        if(this.gameObject.tag=="enemy")
+        {
+            enemiesKilled++;
+            print(enemiesKilled);
+        }
         GunController.instance.TotalEnemies -= 1;
-      
 
     }
 }

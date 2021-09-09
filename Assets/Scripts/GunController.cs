@@ -17,10 +17,7 @@ public class GunController : MonoBehaviour
     [SerializeField]
    public int TotalEnemies = 4;
     public static GunController instance;
-    //public GameObject bulletPrefab;
-    //[SerializeField] float bulletSpeed;
-    // AudioSource audioSource;
-    // public AudioClip audioClip;
+    
     public void Awake()
     {
         instance = this;
@@ -29,7 +26,7 @@ public class GunController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // audioSource = GetComponent<AudioSource>();
+       
     }
 
     // Update is called once per frame
@@ -40,10 +37,7 @@ public class GunController : MonoBehaviour
         {
             if (Input.GetButton("Fire1"))
             {
-                //Instantiate(particleSyste, particlePoint.position, Quaternion.identity);
-                //BulletSpawn();
-                //  audioSource.clip = audioClip;
-                // audioSource.Play();
+               
                 timer = 0f;
                 FireGun();
                 particleSyste.Play();
@@ -67,7 +61,7 @@ public class GunController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100f))
         {
             //Debug.Log(hit.collider.gameObject.name);
-            var enemyhealth = hit.collider.gameObject.GetComponent<Health>();
+            var enemyhealth = hit.collider.gameObject.GetComponent<EnemyHealth>();
             if (enemyhealth != null)
             {
                 enemyhealth.TakeDamage(damage);

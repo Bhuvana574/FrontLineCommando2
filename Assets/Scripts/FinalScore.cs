@@ -5,7 +5,8 @@ using System.IO;
 
 public class FinalScore : MonoBehaviour
 {
-    public Text scoreText,enemieskilled;
+    public Text scoreText;
+     public Text enemieskilled;
 
 
     // Start is called before the first frame update
