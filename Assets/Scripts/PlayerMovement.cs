@@ -9,12 +9,15 @@ public class PlayerMovement : MonoBehaviour
     public float backSpeed;
     public float turnSpeed;
     Animator anim;
+    public int score;
+    public static PlayerMovement instance;
+   
 
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
-      
+        instance = this;
     }
     void Update()
     {
@@ -27,9 +30,17 @@ public class PlayerMovement : MonoBehaviour
         {
             float moveSpeed = (vertical > 0) ? playerSpeed : backSpeed;
             characterController.SimpleMove(transform.forward * vertical * moveSpeed);
-           
+
         }
 
     }
-   
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "enemy")
+        {
+            score = score + 100;
+            Debug.Log(score);
+        }
+
+    }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GunController : MonoBehaviour
 {
@@ -12,11 +13,18 @@ public class GunController : MonoBehaviour
     int damage = 1;
     [SerializeField] float timer;
     [SerializeField] Transform firePoint;
-    //public ParticleSystem particleSyste;
+    public ParticleSystem particleSyste;
+    [SerializeField]
+   public int TotalEnemies = 4;
+    public static GunController instance;
     //public GameObject bulletPrefab;
     //[SerializeField] float bulletSpeed;
     // AudioSource audioSource;
     // public AudioClip audioClip;
+    public void Awake()
+    {
+        instance = this;
+        }
 
     // Start is called before the first frame update
     void Start()
@@ -38,37 +46,34 @@ public class GunController : MonoBehaviour
                 // audioSource.Play();
                 timer = 0f;
                 FireGun();
-                //particleSyste.Play();
+                particleSyste.Play();
             }
+            
+        }
+        if (TotalEnemies == 0)
+        {
+            SceneManager.LoadScene(2);
         }
     }
 
-    /*public void BulletSpawn()
-    {
-        GameObject temp = Instantiate(bulletPrefab);
-        temp.transform.position = firePoint.transform.position;
-        temp.GetComponent<Rigidbody>().AddForce(Vector3.forward*bulletSpeed);
-    }*/
+   
     private void FireGun()
     {
 
-        //particleSyste.transform.position = particlePoint.position;
-        //particleSyste.Play();
-
-        //Debug.DrawRay(firePoint.position, firePoint.forward*50f, Color.red,2f);
-        //Ray ray = new Ray(firePoint.position, firePoint.forward);
+        
         Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
         Debug.DrawRay(ray.origin, ray.direction * 30f, Color.blue, 2f);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100f))
         {
-            Debug.Log(hit.collider.gameObject.name);
+            //Debug.Log(hit.collider.gameObject.name);
             var enemyhealth = hit.collider.gameObject.GetComponent<Health>();
             if (enemyhealth != null)
             {
-                print("Take Damage");
                 enemyhealth.TakeDamage(damage);
             }
+           
+            
         }
     }
 }

@@ -8,8 +8,23 @@ public class Health : MonoBehaviour
     [SerializeField]
     int startHealth = 5;
     [SerializeField]
-    int currentHealth;
+    public int currentHealth;
+    public int enemiesKilled=0;
   
+    
+    public ParticleSystem enemyParticle;
+    public static Health instance;
+    
+    public void Awake()
+    {
+        instance = this;
+
+      }
+
+
+
+
+
     private void OnEnable()
     {
         currentHealth = startHealth;
@@ -24,9 +39,17 @@ public class Health : MonoBehaviour
     }
     private void Die()
     {
-        
+        Instantiate(enemyParticle, this.gameObject.transform.position, Quaternion.identity);
+        enemyParticle.gameObject.SetActive(true);
+      
         //gameObject.SetActive(false);
         Destroy(this.gameObject);
-        
+        if (this.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene(2);
+        }
+        GunController.instance.TotalEnemies -= 1;
+      
+
     }
 }

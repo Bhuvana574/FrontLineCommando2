@@ -3182,10 +3182,10 @@ RectTransform:
   m_Father: {fileID: 762225236}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.58277065, y: 0.6176296}
-  m_AnchorMax: {x: 0.8631043, y: 0.763}
-  m_AnchoredPosition: {x: -317, y: -510}
-  m_SizeDelta: {x: -297.2264, y: 37.437}
+  m_AnchorMin: {x: 0.5, y: 0.14600001}
+  m_AnchorMax: {x: 0.65900004, y: 0.30600002}
+  m_AnchoredPosition: {x: -41.5, y: 9.5}
+  m_SizeDelta: {x: -64.22641, y: 17.437012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1945108258
 MonoBehaviour:
