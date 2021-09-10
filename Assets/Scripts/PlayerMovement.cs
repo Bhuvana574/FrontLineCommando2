@@ -34,13 +34,5 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "enemy")
-        {
-            score = score + 100;
-            Debug.Log(score);
-        }
-
-    }
+    
 }

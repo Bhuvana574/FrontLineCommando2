@@ -15,9 +15,9 @@ public class GunController : MonoBehaviour
     [SerializeField] Transform firePoint;
     public ParticleSystem particleSyste;
     [SerializeField]
-   public int TotalEnemies = 4;
     public static GunController instance;
-    
+    public int score=0;
+    public int enemiesKilled;
     public void Awake()
     {
         instance = this;
@@ -41,13 +41,13 @@ public class GunController : MonoBehaviour
                 timer = 0f;
                 FireGun();
                 particleSyste.Play();
+                
             }
-            
+           
+
         }
-        if (TotalEnemies == 0)
-        {
-            SceneManager.LoadScene(2);
-        }
+        
+        
     }
 
    
@@ -60,14 +60,30 @@ public class GunController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100f))
         {
+            //Instantiate(healthRed, hit.collider.gameObject.transform.position, Quaternion.identity);
             //Debug.Log(hit.collider.gameObject.name);
             var enemyhealth = hit.collider.gameObject.GetComponent<EnemyHealth>();
+           
             if (enemyhealth != null)
             {
                 enemyhealth.TakeDamage(damage);
+
             }
-           
-            
+            if(hit.collider.gameObject.tag=="enemy")
+            {
+                if (enemyhealth.currentHealth <= 0)
+                {
+                    score+=100;
+                    enemiesKilled++;
+                    if(enemiesKilled>=4)
+                    {
+                        SceneManager.LoadScene(2);
+                    }
+                    print(score);
+                }
+            }
         }
+       
     }
+   
 }

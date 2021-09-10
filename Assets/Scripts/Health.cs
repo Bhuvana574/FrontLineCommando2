@@ -7,17 +7,13 @@ public class Health : MonoBehaviour
 {
     [SerializeField]
     int startHealth = 5;
-    [SerializeField]
     public int currentHealth;
-    public int enemiesKilled=0;
-    public ParticleSystem enemyParticle;
-    public static Health instance;
-    
-    public void Awake()
+    public GameObject DeathEffect;
+    public static Health healthinstance;
+    private void Start()
     {
-        instance = this;
-
-      }
+        healthinstance = this;
+    }
 
     private void OnEnable()
     {
@@ -26,6 +22,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
+      //  ScoreManager.Scoreinstance.updateHealth(currentHealth);
         if (currentHealth <= 0)
         {
             Die();
@@ -33,21 +30,11 @@ public class Health : MonoBehaviour
     }
     private void Die()
     {
-        Instantiate(enemyParticle, this.gameObject.transform.position, Quaternion.identity);
-        enemyParticle.gameObject.SetActive(true);
-      
-        //gameObject.SetActive(false);
-        Destroy(this.gameObject);
+        Instantiate(DeathEffect, this.gameObject.transform.position, Quaternion.identity);
+       DeathEffect.gameObject.SetActive(true);
         if (this.gameObject.tag == "Player")
         {
             SceneManager.LoadScene(2);
         }
-        if(this.gameObject.tag=="enemy")
-        {
-            enemiesKilled++;
-            print(enemiesKilled);
-        }
-        GunController.instance.TotalEnemies -= 1;
-
     }
 }
