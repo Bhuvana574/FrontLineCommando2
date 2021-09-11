@@ -6,18 +6,24 @@ using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
     [SerializeField]
-    int startHealth = 5;
+   public  int startHealth = 5;
     public int currentHealth;
     public GameObject DeathEffect;
     public static Health healthinstance;
     private void Start()
     {
+     
         healthinstance = this;
+        Time.timeScale = 1;
+        currentHealth = startHealth;
+        HealthManager.instance.HealthSlider.maxValue = startHealth;
+
     }
 
     private void OnEnable()
     {
         currentHealth = startHealth;
+
     }
     public void TakeDamage(int damageAmount)
     {
@@ -27,14 +33,18 @@ public class Health : MonoBehaviour
         {
             Die();
         }
+       HealthManager.instance.HealthSlider.value = currentHealth;
+       //HealthManager.instance.healthText.text = "Health" + currentHealth;
     }
     private void Die()
     {
         Instantiate(DeathEffect, this.gameObject.transform.position, Quaternion.identity);
        DeathEffect.gameObject.SetActive(true);
+        Time.timeScale = 0;
+
         if (this.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
     }
 }

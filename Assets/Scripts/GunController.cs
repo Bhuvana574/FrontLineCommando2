@@ -18,6 +18,7 @@ public class GunController : MonoBehaviour
     public static GunController instance;
     public int score=0;
     public int enemiesKilled;
+    public GameObject HealthRed;
     public void Awake()
     {
         instance = this;
@@ -60,7 +61,7 @@ public class GunController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100f))
         {
-            //Instantiate(healthRed, hit.collider.gameObject.transform.position, Quaternion.identity);
+            Instantiate(HealthRed, hit.collider.gameObject.transform.position, Quaternion.identity);
             //Debug.Log(hit.collider.gameObject.name);
             var enemyhealth = hit.collider.gameObject.GetComponent<EnemyHealth>();
            
@@ -77,7 +78,7 @@ public class GunController : MonoBehaviour
                     enemiesKilled++;
                     if(enemiesKilled>=4)
                     {
-                        SceneManager.LoadScene(2);
+                        SceneManager.LoadScene(3);
                     }
                     print(score);
                 }

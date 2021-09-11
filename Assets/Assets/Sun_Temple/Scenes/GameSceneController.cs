@@ -10,7 +10,7 @@ public class GameSceneController : MonoBehaviour
     public GameObject HelpMenu;
     public void start()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
     public void Home()
     {

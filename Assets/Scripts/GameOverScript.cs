@@ -7,7 +7,7 @@ public class GameOverScript : MonoBehaviour
 {
     public void restart()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
     }
     public void Quit()
     {

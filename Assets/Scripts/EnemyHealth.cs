@@ -47,7 +47,7 @@ public class EnemyHealth : MonoBehaviour
         
         if (this.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
        
 
