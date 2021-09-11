@@ -19,6 +19,8 @@ public class GunController : MonoBehaviour
     public int score=0;
     public int enemiesKilled;
     public GameObject HealthRed;
+    
+
     public void Awake()
     {
         instance = this;
@@ -27,7 +29,7 @@ public class GunController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        
     }
 
     // Update is called once per frame
@@ -41,7 +43,6 @@ public class GunController : MonoBehaviour
                
                 timer = 0f;
                 FireGun();
-                particleSyste.Play();
                 
             }
            
@@ -55,12 +56,14 @@ public class GunController : MonoBehaviour
     private void FireGun()
     {
 
-        
+        FindObjectOfType<AudioManager>().PlayAudio("Shoot");
         Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
         Debug.DrawRay(ray.origin, ray.direction * 30f, Color.blue, 2f);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100f))
         {
+          //  audioSource.clip = audioClip;
+          
             Instantiate(HealthRed, hit.collider.gameObject.transform.position, Quaternion.identity);
             //Debug.Log(hit.collider.gameObject.name);
             var enemyhealth = hit.collider.gameObject.GetComponent<EnemyHealth>();
@@ -78,7 +81,7 @@ public class GunController : MonoBehaviour
                     enemiesKilled++;
                     if(enemiesKilled>=4)
                     {
-                        SceneManager.LoadScene(3);
+                        SceneManager.LoadScene(4);
                     }
                     print(score);
                 }

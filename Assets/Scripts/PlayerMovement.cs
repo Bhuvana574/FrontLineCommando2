@@ -11,10 +11,12 @@ public class PlayerMovement : MonoBehaviour
     Animator anim;
     public int score;
     public static PlayerMovement instance;
+   
 
 
     private void Awake()
     {
+       
         characterController = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
         instance = this;
@@ -36,12 +38,13 @@ public class PlayerMovement : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag=="player")
+        /*if(other.gameObject.tag=="player")
         {
             Destroy(gameObject);
-        }
+        }*/
         if (other.gameObject.CompareTag("Health"))
         {
+
             Destroy(other.gameObject);
            HealthManager.instance.HealthSlider.value = Health.healthinstance.startHealth;
             //.instance.healthText.text = "Health" + Health.instance.currentHealth;
