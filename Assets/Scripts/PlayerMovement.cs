@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController characterController;
     public float playerSpeed;
     public float backSpeed;
-    public float turnSpeed;
+    public float turnSpeed,jumpForce;
     Animator anim;
     public int score;
     public static PlayerMovement instance;
@@ -34,6 +34,11 @@ public class PlayerMovement : MonoBehaviour
             characterController.SimpleMove(transform.forward * vertical * moveSpeed);
 
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            transform.Translate(Vector3.up * jumpForce * Time.deltaTime);
+        }
+
 
     }
     public void OnTriggerEnter(Collider other)

@@ -19,6 +19,7 @@ public class GunController : MonoBehaviour
     public int score=0;
     public int enemiesKilled;
     public GameObject HealthRed;
+    public int num;
     
 
     public void Awake()
@@ -43,7 +44,7 @@ public class GunController : MonoBehaviour
                
                 timer = 0f;
                 FireGun();
-                
+                particleSyste.Play();
             }
            
 
@@ -79,7 +80,7 @@ public class GunController : MonoBehaviour
                 {
                     score+=100;
                     enemiesKilled++;
-                    if(enemiesKilled>=4)
+                    if(enemiesKilled>=num)
                     {
                         SceneManager.LoadScene(4);
                     }

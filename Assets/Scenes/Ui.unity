@@ -1015,7 +1015,7 @@ MonoBehaviour:
     audioSource: {fileID: 0}
     audioLoop: 1
   - audioName: Shoot
-    audioClip: {fileID: 8300000, guid: 09d367149f23fb74e9c3fe78dc3ba5e6, type: 3}
+    audioClip: {fileID: 8300000, guid: 276404b1eaa576d46a640d5f4130baf2, type: 3}
     volume: 1
     pitch: 1
     audioSource: {fileID: 0}
