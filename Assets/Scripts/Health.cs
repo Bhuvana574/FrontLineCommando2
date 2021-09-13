@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
         healthinstance = this;
         Time.timeScale = 1;
         currentHealth = startHealth;
-        HealthManager.instance.HealthSlider.maxValue = startHealth;
+        HealthManager.instance.HealthSlider.value = startHealth;
 
     }
 

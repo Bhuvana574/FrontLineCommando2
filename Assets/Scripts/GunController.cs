@@ -67,6 +67,9 @@ public class GunController : MonoBehaviour
           
             Instantiate(HealthRed, hit.collider.gameObject.transform.position, Quaternion.identity);
             //Debug.Log(hit.collider.gameObject.name);
+            
+           HitMarkerManager.hitinstance.instancePoint = hit.point;
+            HitMarkerManager.hitinstance.SpawnMarker();
             var enemyhealth = hit.collider.gameObject.GetComponent<EnemyHealth>();
            
             if (enemyhealth != null)
