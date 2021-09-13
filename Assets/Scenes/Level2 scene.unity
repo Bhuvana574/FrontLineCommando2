@@ -17338,7 +17338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec209d937c701b34ab3c432f6ad6505b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitMarkerPrefab: {fileID: 5324346811019904536, guid: 490fb66d2f55c9848a435af81aa95f3a, type: 3}
+  hitMarkerPrefab: {fileID: 496174616053963245, guid: 8712e977fd6cfcd4580e9040dbeabb00, type: 3}
   instancePoint: {x: 0, y: 0, z: 0}
 --- !u!4 &677677177
 Transform:
@@ -24089,7 +24089,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.020000001, y: 0.86700004}
   m_AnchorMax: {x: 0.38478765, y: 0.97079635}
-  m_AnchoredPosition: {x: 1.4000244, y: 2.9830017}
+  m_AnchoredPosition: {x: 1.3999939, y: 2.9830017}
   m_SizeDelta: {x: -5, y: -5.966999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1165848395
@@ -31232,7 +31232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324105759}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -33.229996, y: -0.7989998, z: -32}
+  m_LocalPosition: {x: -54.9, y: -3.8, z: -32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2142809680}
@@ -41300,7 +41300,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198000013564982074, guid: 31fee1c2b8079524babddad687e95210, type: 3}
       propertyPath: randomSeed
-      value: -1342935898
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000013564982074, guid: 31fee1c2b8079524babddad687e95210, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000013564982074, guid: 31fee1c2b8079524babddad687e95210, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000013564982074, guid: 31fee1c2b8079524babddad687e95210, type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000013564982074, guid: 31fee1c2b8079524babddad687e95210, type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31fee1c2b8079524babddad687e95210, type: 3}
@@ -50704,7 +50720,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086956814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.49, y: -0.34000015, z: -30.710007}
+  m_LocalPosition: {x: -22.8, y: -0.34000015, z: -45.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 589965982}
@@ -51655,11 +51671,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: f4209d51d1ad0434299f2d498ee076ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.030002594
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: f4209d51d1ad0434299f2d498ee076ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.97
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400052, guid: f4209d51d1ad0434299f2d498ee076ba, type: 3}
       propertyPath: m_LocalPosition.z
