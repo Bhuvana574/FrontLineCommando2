@@ -33,7 +33,7 @@ public class Health : MonoBehaviour
         {
             Die();
         }
-       HealthManager.instance.HealthSlider.value = currentHealth;
+       HealthManager.instance.HealthSlider.maxValue = currentHealth;
        //HealthManager.instance.healthText.text = "Health" + currentHealth;
     }
     private void Die()
