@@ -29,7 +29,7 @@ public class PLayerSaveData : MonoBehaviour
         FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
         BinaryWriter bw = new BinaryWriter(fs);
         bw.Write("Game Name: " + GameName);
-        print("\n");
+        
         bw.Write("Player Name : " + PlayerName);
         bw.Write("Player Gender : " + Gender);
 

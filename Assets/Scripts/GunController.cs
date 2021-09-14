@@ -63,9 +63,12 @@ public class GunController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100f))
         {
-          //  audioSource.clip = audioClip;
-          
-            Instantiate(HealthRed, hit.collider.gameObject.transform.position, Quaternion.identity);
+            //  audioSource.clip = audioClip;
+            if (hit.collider.gameObject.tag == "enemy")
+            {
+                Instantiate(HealthRed, hit.collider.gameObject.transform.position, Quaternion.identity);
+            }
+            
             //Debug.Log(hit.collider.gameObject.name);
             
            HitMarkerManager.hitinstance.instancePoint = hit.point;
