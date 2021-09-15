@@ -14,7 +14,7 @@ public class FinalScore : MonoBehaviour
     {
         scoreText.text = "Score: " + GunController.instance.score.ToString();
         enemieskilled.text = "KillScore:" + GunController.instance.enemiesKilled.ToString();
-        enemyTarget.text = "/" + GunController.instance.num;
+        enemyTarget.text = " /" + GunController.instance.num;
        
 
     }
